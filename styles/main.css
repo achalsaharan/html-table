@@ -1,0 +1,22 @@
+body {
+    margin: 0;
+}
+
+table {
+    margin: auto;
+    border: 2px solid;
+    border-collapse: collapse;
+    margin-bottom: 2rem;
+}
+
+th,
+td {
+    border: 1px solid;
+    padding: 1rem;
+    margin: 0;
+}
+
+button {
+    padding: 0.5rem;
+    margin: 0.5rem;
+}
