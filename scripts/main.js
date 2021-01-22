@@ -25,7 +25,9 @@ function addRow(event) {
     let noCols = table.rows[0].cells.length;
     for(let i=0; i<noCols; i++){
         let cell = document.createElement('TD');
-        cell.innerText = i;
+        let textarea = document.createElement('TEXTAREA')
+        textarea.setAttribute('placeholder', `${i}`);
+        cell.appendChild(textarea);
         row.appendChild(cell);
     }
 
@@ -36,6 +38,10 @@ function remRow(event){
     //geting the refrence of rows
     const allRows = table.rows;
     let noRows = table.rows.length
+    if(noRows === 1){
+        alert('Can\'t delete any more rows');
+        return;
+    }
     table.rows[noRows-1].remove();
 }
 
@@ -47,7 +53,9 @@ function addCol(event){
     for(let i=0; i<noRows; i++){
         //create a td element
         let cell = document.createElement('TD');
-        cell.innerText = noCols;
+        let textarea = document.createElement('TEXTAREA');
+        textarea.setAttribute('placeholder', `${noCols}`);
+        cell.appendChild(textarea);
         allRows[i].appendChild(cell);
     }
 }
@@ -56,6 +64,11 @@ function remCol(event){
     const allRows = table.rows;
     let noRows = table.rows.length;
     let noCols = table.rows[0].cells.length;
+
+    if(noCols === 1){
+        alert('can\'t delte any more columns');
+        return;
+    }
 
     for(let i=0; i<noRows; i++){
         allRows[i].cells[noCols-1].remove();
